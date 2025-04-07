@@ -10,9 +10,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
         android:background="@drawable/search_background"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
         android:paddingVertical="8dp"
         android:paddingStart="16dp"
         android:paddingEnd="16dp">
@@ -20,8 +20,8 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_search"
             android:layout_marginEnd="8dp"
+            android:src="@drawable/ic_search"
             tools:ignore="ContentDescription" />
 
         <EditText
@@ -29,24 +29,24 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@android:color/transparent"
             android:hint="Tìm kiếm món ăn..."
-            android:textSize="16sp"
+            android:inputType="text"
             android:textColor="#212121"
             android:textColorHint="#757575"
-            android:background="@android:color/transparent"
-            android:inputType="text" />
+            android:textSize="16sp" />
 
         <ImageView
             android:id="@+id/clear_search_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_clear"
-            android:visibility="gone"
-            tools:visibility="visible"
+            android:background="?attr/selectableItemBackgroundBorderless"
             android:clickable="true"
             android:focusable="true"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            tools:ignore="ContentDescription" />
+            android:src="@drawable/ic_clear"
+            android:visibility="gone"
+            tools:ignore="ContentDescription"
+            tools:visibility="visible" />
 
     </LinearLayout>
 
@@ -54,8 +54,8 @@
         android:id="@+id/food_list"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
         android:layout_marginTop="16dp"
+        android:layout_weight="1"
         tools:listitem="@layout/item_food" />
 
 </LinearLayout>

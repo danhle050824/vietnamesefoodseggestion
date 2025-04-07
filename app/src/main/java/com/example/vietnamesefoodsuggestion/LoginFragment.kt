@@ -26,7 +26,6 @@ class LoginFragment : Fragment() {
             val username = binding.usernameInput.text.toString()
             val password = binding.passwordInput.text.toString()
             if (username == "uit" && password == "123456") {
-                // Gọi action để chuyển đến HomeFragment
                 findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
             } else {
                 Toast.makeText(context, "Sai thông tin đăng nhập", Toast.LENGTH_SHORT).show()

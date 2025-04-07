@@ -3,6 +3,7 @@ package com.example.vietnamesefoodsuggestion
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -10,47 +11,53 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.vietnamesefoodsuggestion.databinding.FragmentResultBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [ResultFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class ResultFragment : Fragment() {
     private lateinit var binding: FragmentResultBinding
-    private val foodList = listOf("Phở", "Bún bò", "Bánh mì", "Cơm tấm") // Dữ liệu giả
+    private val args: ResultFragmentArgs by navArgs()
+    private val defaultFoodList = listOf("Phở", "Bún bò", "Bánh mì", "Cơm tấm")
+    private var currentFoodList: List<String> = defaultFoodList
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
+    ): View? {
         binding = FragmentResultBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val recommendedFood = args.recommendedFood
+        Log.d("ResultFragment", "Recommended Food: $recommendedFood")
+
+        if (!recommendedFood.isNullOrEmpty()) {
+            currentFoodList = listOf(recommendedFood)
+        } else {
+            Toast.makeText(context, "Không có món ăn được gợi ý", Toast.LENGTH_SHORT).show()
+            currentFoodList = defaultFoodList
+        }
+
         binding.foodList.layoutManager = LinearLayoutManager(context)
-        binding.foodList.adapter = FoodAdapter(foodList) { food ->
+        binding.foodList.adapter = FoodAdapter(currentFoodList) { food ->
             Toast.makeText(context, "$food đã được lưu", Toast.LENGTH_SHORT).show()
         }
 
         binding.searchInput.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                val filteredList = foodList.filter { it.contains(s.toString(), ignoreCase = true) }
+                val filteredList =
+                    currentFoodList.filter { it.contains(s.toString(), ignoreCase = true) }
                 binding.foodList.adapter = FoodAdapter(filteredList) { food ->
                     Toast.makeText(context, "$food đã được lưu", Toast.LENGTH_SHORT).show()
                 }
             }
+
             override fun afterTextChanged(s: Editable?) {}
         })
     }

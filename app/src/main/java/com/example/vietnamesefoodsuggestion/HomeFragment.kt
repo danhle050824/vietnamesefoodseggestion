@@ -11,10 +11,10 @@ import androidx.navigation.fragment.findNavController;
 import com.example.vietnamesefoodsuggestion.databinding.FragmentHomeBinding;
 import java.util.Timer;
 import java.util.TimerTask;
-import androidx.viewpager2.widget.ViewPager2; // Loại bỏ import này
+import androidx.viewpager2.widget.ViewPager2;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
-import android.widget.ImageView; // Import ImageView
+import android.widget.ImageView;
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -67,46 +67,39 @@ class HomeFragment : Fragment() {
             ) {
                 val selectedItem = menuItems[position]
                 if (selectedItem == "Thoát") {
-                    // Thực hiện hành động thoát (ví dụ: quay về màn hình đăng nhập)
-                    //findNavController().navigate(R.id.action_homeFragment_to_loginFragment) // Điều hướng đến LoginFragment
+                    //findNavController().navigate(R.id.action_homeFragment_to_loginFragment)
                 }
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
-                // Không làm gì khi không có mục nào được chọn
             }
         }
 
         val homeButtonFooter = view.findViewById<android.widget.Button>(R.id.home_button_footer)
         homeButtonFooter?.setOnClickListener {
-            // Trang hiện tại, không cần điều hướng
         }
 
-        val profileButtonFooter = view.findViewById<android.widget.Button>(R.id.profile_button_footer)
+        val profileButtonFooter =
+            view.findViewById<android.widget.Button>(R.id.profile_button_footer)
         profileButtonFooter?.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_profileFragment) // Điều hướng đến ProfileFragment
+            findNavController().navigate(R.id.action_homeFragment_to_profileFragment)
         }
 
-        // Nội dung - Gợi ý
         binding.suggestFoodButton.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_selectionFragment) // Điều hướng đến SelectionFragment
+            findNavController().navigate(R.id.action_homeFragment_to_selectionFragment)
         }
 
-        // Nội dung - Hiển thị 3 ảnh trực tiếp
         val memberImages = listOf(
             R.drawable.ic_ms_ha,
             R.drawable.ic_mr_thinh,
-            R.drawable.ic_mr_nghiem
+            R.drawable.ic_mr_nghiem,
+            R.drawable.ic_mr_danh
         )
 
         binding.memberImageView1.setImageResource(memberImages[0])
         binding.memberImageView2.setImageResource(memberImages[1])
         binding.memberImageView3.setImageResource(memberImages[2])
-
-        // Loại bỏ phần setupMemberSlider và các thuộc tính liên quan
     }
-
-    // Loại bỏ hàm setupMemberSlider và override onPause
 
     companion object {
         /**

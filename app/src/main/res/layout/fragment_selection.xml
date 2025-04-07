@@ -13,6 +13,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
+            android:text="Loại món ăn"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:id="@+id/type_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/spinner_border"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
             android:text="Hương vị"
             android:textSize="16sp"
             android:textStyle="bold" />
@@ -30,12 +47,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
-            android:text="Loại món"
+            android:text="Bữa ăn"
             android:textSize="16sp"
             android:textStyle="bold" />
 
         <Spinner
-            android:id="@+id/type_spinner"
+            android:id="@+id/meal_spinner"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_marginBottom="16dp"
@@ -52,29 +69,11 @@
             android:textStyle="bold" />
 
         <Spinner
-            android:id="@+id/method_spinner"
+            android:id="@+id/process_spinner"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_marginBottom="16dp"
             android:background="@drawable/spinner_border"
-            android:paddingStart="12dp"
-            android:paddingEnd="12dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:text="Giá"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/price_input"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:layout_marginBottom="16dp"
-            android:background="@drawable/edit_text_border"
-            android:inputType="number"
             android:paddingStart="12dp"
             android:paddingEnd="12dp" />
 
@@ -88,23 +87,6 @@
 
         <Spinner
             android:id="@+id/diet_spinner"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:layout_marginBottom="16dp"
-            android:background="@drawable/spinner_border"
-            android:paddingStart="12dp"
-            android:paddingEnd="12dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:text="Vùng miền"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-
-        <Spinner
-            android:id="@+id/region_spinner"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_marginBottom="24dp"
