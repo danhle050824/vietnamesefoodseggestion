@@ -6,7 +6,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitClient {
-    private const val BASE_URL = "http://192.168.2.5:5000/" // port FE local: cmd ipconfig ipv4
+    private const val BASE_URL = "http://192.168.2.5:5000/" // Port FE IPv4: cmd -> ipconfig -> IPv4
 
     private val loggingInterceptor = HttpLoggingInterceptor().apply {
         level = HttpLoggingInterceptor.Level.BODY
